@@ -28,7 +28,7 @@ export default function Tasklist() {
             <TableCell>Task</TableCell>
             <TableCell>Task ID</TableCell>
             <TableCell>Date</TableCell>
-            <TableCell>Summ</TableCell>
+            <TableCell>Summary</TableCell>
             <TableCell>Actions</TableCell>
           </TableRow>
         </TableHead>
