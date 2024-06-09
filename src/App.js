@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {Routes,Route} from "react-router-dom";
+
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import { useState } from 'react';
+import Addtask from './Addtask';
+import Tasklist from './Tasklist';
+import EditTask from './EditTask';
 
 function App() {
+    const [mode,setMode]=useState("light");
+   const darkTheme = createTheme({
+    palette: {
+      mode: mode,
+     },
+   });
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <ThemeProvider theme={darkTheme}>
+        <Paper style={{minHeight:"100vh",borderRadius:"0%"}} elevation={9}>
+        <Routes>
+          {/* <Route path="/register" element={<Register/>}/> */}
+          <Route path="/" element={<Tasklist/>}/>
+          <Route path="/addtask" element={<Addtask/>}/>
+          <Route path="/edit/:id" element={<EditTask />} />
+         
+        </Routes>
+        </Paper>
+        </ThemeProvider>
     </div>
   );
 }
 
 export default App;
+
